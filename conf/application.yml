@@ -1,0 +1,31 @@
+app:
+#  mysql:
+#    # 内网
+#    intranet_dsn: test:test123@(10.2.14.159)/aclog?charset=utf8&parseTime=true
+#    # 二套网
+#    net_dsn: test:test123@(10.2.15.138)/aclog?charset=utf8&parseTime=true
+#    table: _action
+  hbase:
+    # 测试
+    # host: 10.2.14.107:2181,10.2.14.121:2181,10.2.14.127:2181
+    # 正式
+    host: cdh-master01:2181,cdh-master02:2181,cdh-master03:2181
+    user: developer
+    cf: netlog
+    inner_table: DEVOPS:innerNetAction
+    net_table: DEVOPS:twoNetAction
+  elastic:
+    # host: http://es-master01:9200,http://es-master02:9200,http://es-node:9200
+    host: http://10.2.11.173:9200,http://10.2.11.174:9200,http://10.2.11.175:9200
+    inner_tp: aiops_inner
+    net_tp: aiops_net
+    user: aiops
+    password: TetFFcY07f4hCWkn6L9kGQ==
+#  kafka:
+#    broker: cdh-slave01:9092,cdh-slave02:9092,cdh-slave03:9092
+#    #broker: 10.2.14.47:9091,10.2.14.59:9092,10.2.14.83:9093
+#    inner_topic: intranet
+#    net_topic: twoNet
+  log:
+    log_path: ./log
+    log_file: log
